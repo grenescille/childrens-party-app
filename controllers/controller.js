@@ -2,48 +2,40 @@ const Party = require('../models/model');
 
 exports.getAllChildren = async (req, res) => {
   try {
-  } catch (e) {}
+    const allChildren = await Party.find();
+    res.send(allChildren);
+    res.status(200);
+  } catch (e) {
+    console.log(e);
+    res.status(500).send();
+  }
+};
+
+exports.addChild = async (req, res) => {
+  try {
+    req.body = await Party.create(req.body);
+    res.send(req.body);
+    res.status(200);
+  } catch (e) {
+    console.log(e);
+    res.status(400).send();
+  }
 };
 
 exports.getConfirmedChildren = async (req, res) => {
   try {
+    //use map to check if confirmed is true
   } catch (e) {}
 };
 
 exports.getDeclinedChildren = async (req, res) => {
   try {
+    //use map to check if declined is true
   } catch (e) {}
 };
 
 exports.getUnconfirmedChildren = async (req, res) => {
   try {
+    //use map to check if both confirmed and declined are true
   } catch (e) {}
 };
-
-exports.addChild = async (req, res) => {
-  try {
-  } catch (e) {}
-};
-
-// exports.getAllEvents = async (req, res) => {
-//   try {
-//     const events = await Event.find();
-//     res.body = events.sort((a, b) => a.date - b.date);
-//     res.send(events);
-//     res.status(200);
-//   } catch (e) {
-//     console.log(e);
-//     res.status(500).send();
-//   }
-// };
-
-// exports.createEvent = async (req, res) => {
-//   try {
-//     req.body = await Event.create(req.body);
-//     res.send(req.body);
-//     res.status(200).send();
-//   } catch (e) {
-//     console.log(e);
-//     res.status(400).send();
-//   }
-// };

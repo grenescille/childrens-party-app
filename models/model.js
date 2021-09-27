@@ -8,7 +8,8 @@ const partySchema = new Schema({
   telNumber: String,
   dairy: Boolean,
   nuts: Boolean,
-  attending: String,
+  confirmed: Boolean,
+  declined: Boolean,
 });
 
 const Party = mongoose.model('party', partySchema);
