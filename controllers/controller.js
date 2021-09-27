@@ -22,10 +22,25 @@ exports.addChild = async (req, res) => {
   }
 };
 
+// var ids = things.reduce((ids, thing) => {
+// if (thing.selected) {
+// 	ids.push(thing.id);
+// }
+// return ids;
+// }, []);
+
 exports.getConfirmedChildren = async (req, res) => {
   try {
-    //use map to check if confirmed is true
-  } catch (e) {}
+    const allChildren = await Party.find();
+    const confirmed = allChildren.flatMap((child) =>
+      child.confirmed ? child : []
+    );
+    res.send(confirmed);
+    res.status(200);
+  } catch (e) {
+    console.log(e);
+    res.status(500).send();
+  }
 };
 
 exports.getDeclinedChildren = async (req, res) => {
