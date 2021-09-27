@@ -45,8 +45,16 @@ exports.getConfirmedChildren = async (req, res) => {
 
 exports.getDeclinedChildren = async (req, res) => {
   try {
-    //use map to check if declined is true
-  } catch (e) {}
+    const allChildren = await Party.find();
+    const declined = allChildren.flatMap((child) =>
+      child.declined ? child : []
+    );
+    res.send(declined);
+    res.status(200);
+  } catch (e) {
+    console.log(e);
+    res.status(500).send();
+  }
 };
 
 exports.getUnconfirmedChildren = async (req, res) => {
