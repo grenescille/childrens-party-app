@@ -1,4 +1,4 @@
-function Attendees(props) {
+function Children(props) {
   return (
     <div>
       <h5 id="child-name">{props.childName} </h5>
@@ -6,4 +6,4 @@ function Attendees(props) {
   );
 }
 
-export default Attendees;
+export default Children;

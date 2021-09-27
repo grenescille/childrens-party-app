@@ -1,62 +1,32 @@
+import React from 'react';
 import './App.css';
-import Form from './components/form';
-import Attendees from './components/attendees';
+import Navbar from './components/navbar';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Home from './pages/home';
+import AddChildForm from './pages/addchild';
+import Attendees from './pages/attendees';
+import Allergies from './pages/allergies';
+import Budget from './pages/budget';
+import baseURL from './utils/basurl';
+
 import { useState, useEffect } from 'react';
 
 function App() {
-  const baseURL = 'http://localhost:3001';
-
   const [party, setParty] = useState([]);
 
-  useEffect(() => {
-    invitedChildren();
-  }, [party]);
-
-  function invitedChildren() {
-    fetch(baseURL + '/party').then((response) => {
-      if (!response.ok) {
-        throw Error('Error fetching the invited children');
-      }
-      return response
-        .json()
-        .then((data) => {
-          setParty(data);
-        })
-        .catch((err) => {
-          throw Error(err.message);
-        });
-    });
-  }
-
-  function addChild(input) {
-    fetch(baseURL + '/party', {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json',
-      },
-      body: JSON.stringify({
-        childName: input.childName,
-        parentName: input.parentName,
-        number: input.number,
-        dairy: input.dairy,
-        nuts: input.nuts,
-      }),
-    }).then(invitedChildren());
-  }
-
   return (
-    <>
-      <div>
-        <Form onSubmit={addChild} />
-      </div>
-      <div>
-        {party.map((child) => {
-          return (
-            <Attendees key={child._id} childName={child.childName}></Attendees>
-          );
-        })}
-      </div>
-    </>
+    <Router>
+      <Navbar />
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/addchild" component={AddChildForm} />
+        <Route path="/attendees">
+          <Attendees party={party} />
+        </Route>
+        <Route path="/allergies" component={Allergies} />
+        <Route path="/budget" component={Budget} />
+      </Switch>
+    </Router>
   );
 }
 
