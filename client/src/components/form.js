@@ -5,14 +5,18 @@ function Form(props) {
     childName: '',
     parentName: '',
     number: '',
-    dairy: '',
-    nuts: '',
-    confirmed: '',
+    dairy: true,
+    nuts: false,
+    // confirmed: '',
   });
 
   return (
     <div className="form-container">
-      <form className="form-create-party" onSubmit={handleSubmit}>
+      <form
+        name="registration"
+        className="form-create-party"
+        onSubmit={handleSubmit}
+      >
         <h3 className="form-h3">Create a new party</h3>
         <p className="form-p">CHILD'S NAME</p>
         <input
@@ -46,10 +50,11 @@ function Form(props) {
         <div className="form-check">
           <label>
             <input
+              onClick={() => handleChange}
               type="radio"
               name="dairy"
-              value={(state.dairy = true)}
-              checked={true}
+              value={true}
+              // checked={true}
               className="form-check-input"
             />
             Yes
@@ -61,9 +66,10 @@ function Form(props) {
             <input
               type="radio"
               name="dairy"
-              value={(state.dairy = false)}
-              checked={true}
+              value={false}
+              // checked={true}
               className="form-check-input"
+              onChange={handleChange}
             />
             No
           </label>
@@ -75,9 +81,10 @@ function Form(props) {
             <input
               type="radio"
               name="nuts"
-              value={(state.nuts = true)}
-              checked={true}
+              value={true}
+              // checked={true}
               className="form-check-input"
+              onChange={handleChange}
             />
             Yes
           </label>
@@ -88,9 +95,10 @@ function Form(props) {
             <input
               type="radio"
               name="nuts"
-              value={(state.nuts = false)}
-              checked={true}
+              value={false}
+              // checked={true}
               className="form-check-input"
+              onChange={handleChange}
             />
             No
           </label>
@@ -105,14 +113,13 @@ function Form(props) {
   function handleSubmit(e) {
     e.preventDefault();
     props.onSubmit(state);
+    let frm = document.getElementsByName('registration')[0];
+    frm.reset();
 
     setState({
       childName: '',
       parentName: '',
       number: '',
-      dairy: Boolean,
-      nuts: Boolean,
-      confirmed: '',
     });
   }
 

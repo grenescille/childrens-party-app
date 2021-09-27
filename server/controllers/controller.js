@@ -87,3 +87,13 @@ exports.getNoDairy = async (req, res) => {
     res.status(500).send();
   }
 };
+
+exports.deleteChildren = async (req, res) => {
+  try {
+    await Party.deleteMany();
+    res.status(204).send();
+  } catch (e) {
+    console.log(e);
+    res.status(500).send();
+  }
+};

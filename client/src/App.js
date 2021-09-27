@@ -10,7 +10,7 @@ function App() {
 
   useEffect(() => {
     invitedChildren();
-  }, []);
+  }, [party]);
 
   function invitedChildren() {
     fetch(baseURL + '/party').then((response) => {
@@ -49,12 +49,13 @@ function App() {
       <div>
         <Form onSubmit={addChild} />
       </div>
-      <div></div>
-      {party.map((child) => {
-        return (
-          <Attendees key={child._id} childName={child.childName}></Attendees>
-        );
-      })}
+      <div>
+        {party.map((child) => {
+          return (
+            <Attendees key={child._id} childName={child.childName}></Attendees>
+          );
+        })}
+      </div>
     </>
   );
 }

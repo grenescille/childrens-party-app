@@ -16,4 +16,6 @@ router.get('/nodairy', controller.getNoDairy);
 
 router.post('/party', controller.addChild);
 
+router.delete('/party', controller.deleteChildren);
+
 module.exports = router;
