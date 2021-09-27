@@ -6,7 +6,7 @@ router.get('/', (req, res) => {
   res.send('hello world');
 });
 
-router.get('/allchildren', controller.getAllChildren);
+router.get('/party', controller.getAllChildren);
 
 router.get('/confirmed', controller.getConfirmedChildren);
 
