@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const partySchema = new Schema({
   childName: String,
   parentName: String,
-  telNumber: String,
+  number: String,
   dairy: Boolean,
   nuts: Boolean,
   confirmed: Boolean,

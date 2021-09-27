@@ -4,7 +4,7 @@ function Form(props) {
   const [state, setState] = useState({
     childName: '',
     parentName: '',
-    telNumber: '',
+    number: '',
     dairy: '',
     nuts: '',
     confirmed: '',
@@ -42,32 +42,60 @@ function Form(props) {
           required
         />
         <p className="form-p">EAT DAIRY?</p>
-        <input
-          className="form-dairy"
-          name="dairy"
-          type="text"
-          value={state.dairy}
-          onChange={handleChange}
-          required
-        />
-        <p className="form-p">PARENT'S NUMBER</p>
-        <input
-          className="form-number"
-          name="number"
-          type="text"
-          value={state.number}
-          onChange={handleChange}
-          required
-        />
-        <p className="form-p">PARENT'S NUMBER</p>
-        <input
-          className="form-number"
-          name="number"
-          type="text"
-          value={state.number}
-          onChange={handleChange}
-          required
-        />
+
+        <div className="form-check">
+          <label>
+            <input
+              type="radio"
+              name="dairy"
+              value={(state.dairy = true)}
+              checked={true}
+              className="form-check-input"
+            />
+            Yes
+          </label>
+        </div>
+
+        <div className="form-check">
+          <label>
+            <input
+              type="radio"
+              name="dairy"
+              value={(state.dairy = false)}
+              checked={true}
+              className="form-check-input"
+            />
+            No
+          </label>
+        </div>
+        <p className="form-p">EAT NUTS?</p>
+
+        <div className="form-check">
+          <label>
+            <input
+              type="radio"
+              name="nuts"
+              value={(state.nuts = true)}
+              checked={true}
+              className="form-check-input"
+            />
+            Yes
+          </label>
+        </div>
+
+        <div className="form-check">
+          <label>
+            <input
+              type="radio"
+              name="nuts"
+              value={(state.nuts = false)}
+              checked={true}
+              className="form-check-input"
+            />
+            No
+          </label>
+        </div>
+
         <button className="button" type="submit">
           CREATE
         </button>
@@ -76,12 +104,16 @@ function Form(props) {
   );
   function handleSubmit(e) {
     e.preventDefault();
-    // props.onSubmit(state);
-    // setState({
-    //   title: '',
-    //   date: state.date,
-    //   venue: '',
-    // });
+    props.onSubmit(state);
+
+    setState({
+      childName: '',
+      parentName: '',
+      number: '',
+      dairy: Boolean,
+      nuts: Boolean,
+      confirmed: '',
+    });
   }
 
   function handleChange(e) {
