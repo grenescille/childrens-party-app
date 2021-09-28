@@ -115,7 +115,7 @@ function App() {
             />
           )}
         />
-        <Route path="/budget" component={Budget} />
+        <Route path="/budget" render={() => <Budget party={party} />} />
       </Switch>
     </Router>
   );

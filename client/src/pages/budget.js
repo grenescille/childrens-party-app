@@ -2,18 +2,21 @@ import BudgetForm from '../components/budgetform';
 import baseURL from '../utils/basurl';
 import { useState } from 'react';
 
-function Budget() {
-  const [budget, setBudget] = useState();
+function Budget(props) {
+  const [lastBudget, setLastBudget] = useState({});
   return (
     <>
       <div>
         <BudgetForm onSubmit={createBudget} />
       </div>
+      <div>
+        <h5 id="totalBudget-text">TOTAL COST</h5>
+        <h1 id="totalBudgetCost-text">{budgetCalculator(props, lastBudget)}</h1>
+      </div>
     </>
   );
 
   function createBudget(input) {
-    console.log('input ', input);
     fetch(baseURL + '/budget', {
       method: 'POST',
       headers: {
@@ -30,16 +33,8 @@ function Budget() {
         partyGames: input.partyGames,
         cake: input.cake,
       }),
-    });
+    }).then(fetchBudget);
   }
-
-  // "invitation": true,
-  // "hireVenue": true,
-  // "hireEntertainer": true,
-  // "partyBags": true,
-  // "birthdayBanner": true,
-  // "cake": true,
-  // "__v": 0
 
   function fetchBudget() {
     fetch(baseURL + '/budget').then((response) => {
@@ -49,12 +44,64 @@ function Budget() {
       return response
         .json()
         .then((data) => {
-          setBudget(data);
+          const lastBudget = data[data.length - 1];
+          setLastBudget(lastBudget);
         })
         .catch((err) => {
           throw Error(err.message);
         });
     });
+  }
+
+  function budgetCalculator(props, lastBudget) {
+    const totalChildren = props.party.length;
+    const invitationsCost = 3 * totalChildren;
+    const hireVenueCost = 13 * lastBudget.partyLength;
+    const entertainerCost = 150;
+    const hirePaCost = 20;
+    const partyBagsCost = 1 * totalChildren;
+    const bannerCost = 5;
+    const prizesCost = 1.99 * lastBudget.partyGames;
+    const cakeCost = 50;
+    const pizzaCost = 3 * (totalChildren / 4);
+    const crispsCost = 2 * (totalChildren / 6);
+    const sausageRollsCost = 1.75 * (totalChildren / 5);
+    const squashCost = 2.5;
+    const coffeeCost = 3.5;
+    const teaCost = 3;
+    const milkCost = 1;
+    const wineForAdultsCost = 7 * (totalChildren / 3);
+    const biscuitsCost = 1.6 * (totalChildren / 10);
+
+    const totalCostsArr = [
+      invitationsCost,
+      hireVenueCost,
+      entertainerCost,
+      hirePaCost,
+      partyBagsCost,
+      bannerCost,
+      prizesCost,
+      cakeCost,
+      pizzaCost,
+      crispsCost,
+      sausageRollsCost,
+      squashCost,
+      coffeeCost,
+      teaCost,
+      milkCost,
+      wineForAdultsCost,
+      biscuitsCost,
+    ];
+
+    const totalCost = totalCostsArr.reduce((acc, item) => {
+      return (acc += item);
+    });
+
+    console.log('totalCost ', totalCost);
+
+    if (!isNaN(totalCost)) {
+      return totalCost;
+    } else return 0;
   }
 }
 

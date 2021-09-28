@@ -12,12 +12,6 @@ function BudgetForm(props) {
   const [partyGames, setPartyGames] = useState('');
   const [cake, setCake] = useState(true);
 
-  const [state, setState] = useState({
-    childName: '',
-    parentName: '',
-    number: '',
-  });
-
   return (
     <div className="form-container">
       <form
