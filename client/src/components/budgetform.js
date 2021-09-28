@@ -13,13 +13,37 @@ function BudgetForm(props) {
   const [cake, setCake] = useState(true);
 
   return (
-    <div className="form-container">
+    <div
+      className="form-container"
+      style={{
+        display: 'inline-block',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        textAlign: 'left',
+      }}
+    >
       <form
         name="budget"
         className="form-create-budget"
         onSubmit={handleSubmit}
       >
-        <p className="form-p">Send invitations?</p>
+        <p
+          className="form-p"
+          style={{
+            height: '30px',
+            textAlign: 'center',
+            paddingTop: '8px',
+            width: '310px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            backgroundColor: '#ffa45c',
+            borderRadius: '4px',
+            border: '1px black',
+            marginTop: '20px',
+          }}
+        >
+          Send invitations?
+        </p>
 
         <div className="form-check">
           <label>
@@ -46,10 +70,27 @@ function BudgetForm(props) {
             No
           </label>
         </div>
-        <p className="form-p">Party length (hours)</p>
+        <p
+          className="form-p"
+          style={{
+            height: '30px',
+            textAlign: 'center',
+            paddingTop: '8px',
+            width: '310px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            backgroundColor: '#ffa45c',
+            borderRadius: '4px',
+            border: '1px black',
+            marginTop: '20px',
+          }}
+        >
+          Party length (hours)
+        </p>
         <div className="form-check">
           <label>
             <input
+              style={{ width: '300px' }}
               value={length}
               onChange={handlePartyLength}
               type="text"
@@ -58,7 +99,23 @@ function BudgetForm(props) {
             />
           </label>
         </div>
-        <p className="form-p">Hire venue?</p>
+        <p
+          className="form-p"
+          style={{
+            height: '30px',
+            textAlign: 'center',
+            paddingTop: '8px',
+            width: '310px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            backgroundColor: '#ffa45c',
+            borderRadius: '4px',
+            border: '1px black',
+            marginTop: '20px',
+          }}
+        >
+          Hire venue?
+        </p>
 
         <div className="form-check">
           <label>
@@ -85,7 +142,23 @@ function BudgetForm(props) {
             No
           </label>
         </div>
-        <p className="form-p">Hire entertainer?</p>
+        <p
+          className="form-p"
+          style={{
+            height: '30px',
+            textAlign: 'center',
+            paddingTop: '8px',
+            width: '310px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            backgroundColor: '#ffa45c',
+            borderRadius: '4px',
+            border: '1px black',
+            marginTop: '20px',
+          }}
+        >
+          Hire entertainer?
+        </p>
         <div className="form-check">
           <label>
             <input
@@ -110,7 +183,23 @@ function BudgetForm(props) {
             No
           </label>
         </div>
-        <p className="form-p">Hire PA?</p>
+        <p
+          className="form-p"
+          style={{
+            height: '30px',
+            textAlign: 'center',
+            paddingTop: '8px',
+            width: '310px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            backgroundColor: '#ffa45c',
+            borderRadius: '4px',
+            border: '1px black',
+            marginTop: '20px',
+          }}
+        >
+          Hire PA?
+        </p>
         <div className="form-check">
           <label>
             <input
@@ -135,7 +224,23 @@ function BudgetForm(props) {
             No
           </label>
         </div>
-        <p className="form-p">Party Bags?</p>
+        <p
+          className="form-p"
+          style={{
+            height: '30px',
+            textAlign: 'center',
+            paddingTop: '8px',
+            width: '310px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            backgroundColor: '#ffa45c',
+            borderRadius: '4px',
+            border: '1px black',
+            marginTop: '20px',
+          }}
+        >
+          Party Bags?
+        </p>
         <div className="form-check">
           <label>
             <input
@@ -160,7 +265,23 @@ function BudgetForm(props) {
             No
           </label>
         </div>
-        <p className="form-p">Birthday Banner?</p>
+        <p
+          className="form-p"
+          style={{
+            height: '30px',
+            textAlign: 'center',
+            paddingTop: '8px',
+            width: '310px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            backgroundColor: '#ffa45c',
+            borderRadius: '4px',
+            border: '1px black',
+            marginTop: '20px',
+          }}
+        >
+          Birthday Banner?
+        </p>
         <div className="form-check">
           <label>
             <input
@@ -185,10 +306,27 @@ function BudgetForm(props) {
             No
           </label>
         </div>
-        <p className="form-p">How many party games?</p>
+        <p
+          style={{
+            height: '30px',
+            textAlign: 'center',
+            paddingTop: '8px',
+            width: '310px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            backgroundColor: '#ffa45c',
+            borderRadius: '4px',
+            border: '1px black',
+            marginTop: '20px',
+          }}
+          className="form-p"
+        >
+          How many party games?
+        </p>
         <div className="form-check">
           <label>
             <input
+              style={{ width: '300px' }}
               value={partyGames}
               onChange={handlePartyGames}
               type="text"
@@ -197,7 +335,23 @@ function BudgetForm(props) {
             />
           </label>
         </div>
-        <p className="form-p">Buy a cake?</p>
+        <p
+          style={{
+            height: '30px',
+            textAlign: 'center',
+            paddingTop: '8px',
+            width: '310px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            backgroundColor: '#ffa45c',
+            borderRadius: '4px',
+            border: '1px black',
+            marginTop: '20px',
+          }}
+          className="form-p"
+        >
+          Buy a cake?
+        </p>
         <div className="form-check">
           <label>
             <input
@@ -222,7 +376,20 @@ function BudgetForm(props) {
             No
           </label>
         </div>
-        <button className="button" type="submit">
+        <button
+          className="button"
+          type="submit"
+          style={{
+            height: '50px',
+            width: '310px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            backgroundColor: '#ffa45c',
+            borderRadius: '4px',
+            border: '1px black',
+            marginTop: '20px',
+          }}
+        >
           SUBMIT
         </button>
       </form>

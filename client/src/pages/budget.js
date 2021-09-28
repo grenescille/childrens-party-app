@@ -1,17 +1,39 @@
 import BudgetForm from '../components/budgetform';
 import baseURL from '../utils/basurl';
 import { useState } from 'react';
+import { FlexFlowContext } from 'twilio/lib/rest/flexApi/v1/flexFlow';
 
 function Budget(props) {
   const [lastBudget, setLastBudget] = useState({});
   return (
     <>
-      <div>
-        <BudgetForm onSubmit={createBudget} />
-      </div>
-      <div>
-        <h5 id="totalBudget-text">TOTAL COST</h5>
-        <h1 id="totalBudgetCost-text">{budgetCalculator(props, lastBudget)}</h1>
+      <div
+        className="budget-page-wrapper"
+        style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}
+      >
+        <div
+          className="budget-form-wrapper"
+          style={{
+            maxHeight: '1250px',
+            textAlign: 'center',
+            borderRadius: '10px',
+            border: '2px solid grey',
+            borderColor: 'black',
+            margin: '15px',
+            padding: '10px',
+            maxWidth: '340px',
+            minWidth: '31%',
+            justifyContent: 'center',
+          }}
+        >
+          <BudgetForm onSubmit={createBudget} />
+        </div>
+        <div>
+          <h5 id="totalBudget-text">TOTAL COST</h5>
+          <h1 id="totalBudgetCost-text">
+            £{budgetCalculator(props, lastBudget)}
+          </h1>
+        </div>
       </div>
     </>
   );
@@ -98,7 +120,7 @@ function Budget(props) {
     });
 
     if (!isNaN(totalCost)) {
-      return totalCost;
+      return totalCost.toFixed(2);
     } else return 0;
   }
 }

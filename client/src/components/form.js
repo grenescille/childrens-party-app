@@ -15,22 +15,40 @@ function Form(props) {
       <form
         style={{
           display: 'inline-block',
+          textAlign: 'left',
           marginLeft: 'auto',
           marginRight: 'auto',
-          textAlign: 'center',
         }}
         name="registration"
         className="form-create-party"
         onSubmit={handleSubmit}
       >
-        <h3 className="form-h3">Add Children</h3>
-        <p className="form-p">Child's Name</p>
+        <h3 className="form-h3" style={{ textAlign: 'center' }}>
+          Add Children
+        </h3>
+        <p
+          className="form-p"
+          style={{
+            height: '30px',
+            textAlign: 'center',
+            paddingTop: '8px',
+            width: '310px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            backgroundColor: '#ffa45c',
+            borderRadius: '4px',
+            border: '1px black',
+            marginTop: '20px',
+          }}
+        >
+          Child's Name
+        </p>
         <input
           style={{
             height: '40px',
             width: '300px',
-            marginLeft: '40px',
-            marginRight: '40px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
             marginBottom: '10px',
             border: '1px solid #e9e6e6e2',
           }}
@@ -41,13 +59,29 @@ function Form(props) {
           onChange={handleChange}
           required
         />
-        <p className="form-p">Parent's Name</p>
+        <p
+          className="form-p"
+          style={{
+            height: '30px',
+            textAlign: 'center',
+            paddingTop: '8px',
+            width: '310px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            backgroundColor: '#ffa45c',
+            borderRadius: '4px',
+            border: '1px black',
+            marginTop: '20px',
+          }}
+        >
+          Parent's Name
+        </p>
         <input
           style={{
             height: '40px',
             width: '300px',
-            marginLeft: '40px',
-            marginRight: '40px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
             marginBottom: '10px',
             border: '1px solid #e9e6e6e2',
           }}
@@ -58,13 +92,29 @@ function Form(props) {
           onChange={handleChange}
           required
         />
-        <p className="form-p">Parent's Number</p>
+        <p
+          className="form-p"
+          style={{
+            height: '30px',
+            textAlign: 'center',
+            paddingTop: '8px',
+            width: '310px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            backgroundColor: '#ffa45c',
+            borderRadius: '4px',
+            border: '1px black',
+            marginTop: '20px',
+          }}
+        >
+          Parent's Mobile Number
+        </p>
         <input
           style={{
             height: '40px',
             width: '300px',
-            marginLeft: '40px',
-            marginRight: '40px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
             marginBottom: '10px',
             border: '1px solid #e9e6e6e2',
           }}
@@ -75,7 +125,22 @@ function Form(props) {
           onChange={handleChange}
           required
         />
-        <p className="form-p">Eat Dairy?</p>
+        <p
+          style={{
+            height: '30px',
+            textAlign: 'center',
+            paddingTop: '8px',
+            width: '310px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            backgroundColor: '#ffa45c',
+            borderRadius: '4px',
+            border: '1px black',
+            marginTop: '20px',
+          }}
+        >
+          Can child have dairy?
+        </p>
 
         <div className="form-check">
           <label>
@@ -104,15 +169,19 @@ function Form(props) {
         </div>
         <p
           style={{
-            height: '40px',
-            width: '300px',
-            marginLeft: '40px,',
-            marginRight: '40px',
-            marginBottom: '10px',
-            border: '1px solid #e9e6e6e2',
+            height: '30px',
+            textAlign: 'center',
+            paddingTop: '8px',
+            width: '310px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            backgroundColor: '#ffa45c',
+            borderRadius: '4px',
+            border: '1px black',
+            marginTop: '20px',
           }}
         >
-          Eat Nuts?
+          Can child eat nuts?
         </p>
 
         <div className="form-check">
@@ -145,8 +214,8 @@ function Form(props) {
           style={{
             height: '50px',
             width: '310px',
-            marginLeft: '40px',
-            marginRight: '40px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
             backgroundColor: '#ffa45c',
             borderRadius: '4px',
             border: '1px black',

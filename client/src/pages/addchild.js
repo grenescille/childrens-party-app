@@ -3,6 +3,7 @@ import Children from '../components/children';
 
 import { useState, useEffect } from 'react';
 import baseURL from '../utils/basurl';
+import { FlexFlowContext } from 'twilio/lib/rest/flexApi/v1/flexFlow';
 
 function AddChildForm(props) {
   useEffect(() => {
@@ -26,30 +27,50 @@ function AddChildForm(props) {
   }
 
   return (
-    <div>
+    <div
+      className="addchild-wrapper"
+      style={{
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+      }}
+    >
       <div
+        className="form-wrapper"
         style={{
-          display: 'block',
-          textAlign: 'center',
+          maxHeight: '750px',
+          textAlign: 'left',
           borderRadius: '10px',
           border: '2px solid grey',
           borderColor: 'black',
-          margin: '20px',
+          margin: '15px',
           padding: '10px',
           maxWidth: '340px',
-          minWidth: '35%',
+          minWidth: '31%',
           justifyContent: 'center',
         }}
       >
         <Form onSubmit={addChild} />
       </div>
-      <h3 style={{ margin: '30px' }}>Children Attending</h3>
-      <div>
-        {props.party.map((child) => {
-          return (
-            <Children key={child._id} childName={child.childName}></Children>
-          );
-        })}
+      <div
+        className="children-wrapper"
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          flexWrap: 'wrap',
+          maxHeight: '700px',
+        }}
+      >
+        <div
+          className="children"
+          style={{ maxHeight: '700px', minWidth: '300px', maxWidth: '300px' }}
+        >
+          {props.party.map((child) => {
+            return (
+              <Children key={child._id} childName={child.childName}></Children>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
