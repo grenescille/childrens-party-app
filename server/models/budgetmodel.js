@@ -6,7 +6,7 @@ const budgetSchema = new Schema({
   partyLength: Number,
   hireVenue: Boolean,
   hireEntertainer: Boolean,
-  hirePA: Boolean,
+  hirePa: Boolean,
   partyBags: Boolean,
   birthdayBanner: Boolean,
   partyGames: Number,

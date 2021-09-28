@@ -13,24 +13,33 @@ function Budget() {
   );
 
   function createBudget(input) {
+    console.log('input ', input);
     fetch(baseURL + '/budget', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
       },
       body: JSON.stringify({
-        invitation: input.invitation,
-        partyLength: input.partyLength,
+        invitation: input.invitations,
+        partyLength: input.length,
         hireVenue: input.hireVenue,
         hireEntertainer: input.hireEntertainer,
-        hirePA: input.hirePA,
+        hirePa: input.hirePa,
         partyBags: input.partyBags,
-        birthdayBanner: input.birthdayBanner,
+        birthdayBanner: input.banner,
         partyGames: input.partyGames,
         cake: input.cake,
       }),
     });
   }
+
+  // "invitation": true,
+  // "hireVenue": true,
+  // "hireEntertainer": true,
+  // "partyBags": true,
+  // "birthdayBanner": true,
+  // "cake": true,
+  // "__v": 0
 
   function fetchBudget() {
     fetch(baseURL + '/budget').then((response) => {

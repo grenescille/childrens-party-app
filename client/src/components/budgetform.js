@@ -1,16 +1,15 @@
 import { useState } from 'react';
 
 function BudgetForm(props) {
-  const [length, setLength] = useState();
+  const [length, setLength] = useState('');
   const [invitations, setInvitations] = useState(true);
   const [hireVenue, setHireVenue] = useState(true);
   const [hireEntertainer, setHireEntertainer] = useState(true);
-  const [nuts, setNuts] = useState();
-  const [dairy, setDairy] = useState();
+
   const [hirePa, setHirePa] = useState(true);
   const [partyBags, setPartyBags] = useState(true);
   const [banner, setBanner] = useState(true);
-  const [partyGames, setPartyGames] = useState();
+  const [partyGames, setPartyGames] = useState('');
   const [cake, setCake] = useState(true);
 
   const [state, setState] = useState({
@@ -24,7 +23,7 @@ function BudgetForm(props) {
       <form
         name="budget"
         className="form-create-budget"
-        // onSubmit={handleSubmit}
+        onSubmit={handleSubmit}
       >
         <p className="form-p">Send invitations?</p>
 
@@ -58,7 +57,7 @@ function BudgetForm(props) {
           <label>
             <input
               value={length}
-              onChange={() => setLength(length)}
+              onChange={handlePartyLength}
               type="text"
               name="length"
               className="form-check-input"
@@ -197,7 +196,7 @@ function BudgetForm(props) {
           <label>
             <input
               value={partyGames}
-              onChange={() => setPartyGames(partyGames)}
+              onChange={handlePartyGames}
               type="text"
               name="partygames"
               className="form-check-input"
@@ -240,13 +239,13 @@ function BudgetForm(props) {
     e.preventDefault();
     props.onSubmit({
       invitations,
-      length,
+      length: Number(length),
       hireVenue,
       hireEntertainer,
       hirePa,
       partyBags,
       banner,
-      partyGames,
+      partyGames: Number(partyGames),
       cake,
     });
 
@@ -261,12 +260,13 @@ function BudgetForm(props) {
     setCake(false);
   }
 
-  // function handleChange(e) {
-  //   // setState({
-  //   //   ...state,
-  //   //   [e.target.name]: e.target.value,
-  //   // });
-  // }
+  function handlePartyGames(e) {
+    setPartyGames(e.target.value);
+  }
+
+  function handlePartyLength(e) {
+    setLength(e.target.value);
+  }
 }
 
 export default BudgetForm;
