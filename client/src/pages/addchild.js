@@ -26,10 +26,24 @@ function AddChildForm(props) {
   }
 
   return (
-    <div className="addChildWrapper">
-      <div>
+    <div>
+      <div
+        style={{
+          display: 'block',
+          textAlign: 'center',
+          borderRadius: '10px',
+          border: '2px solid grey',
+          borderColor: 'black',
+          margin: '20px',
+          padding: '10px',
+          maxWidth: '340px',
+          minWidth: '35%',
+          justifyContent: 'center',
+        }}
+      >
         <Form onSubmit={addChild} />
       </div>
+      <h3 style={{ margin: '30px' }}>Children Attending</h3>
       <div>
         {props.party.map((child) => {
           return (

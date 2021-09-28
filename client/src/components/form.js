@@ -13,13 +13,27 @@ function Form(props) {
   return (
     <div className="form-container">
       <form
+        style={{
+          display: 'inline-block',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          textAlign: 'center',
+        }}
         name="registration"
         className="form-create-party"
         onSubmit={handleSubmit}
       >
-        <h3 className="form-h3">Create a new party</h3>
-        <p className="form-p">CHILD'S NAME</p>
+        <h3 className="form-h3">Add Children</h3>
+        <p className="form-p">Child's Name</p>
         <input
+          style={{
+            height: '40px',
+            width: '300px',
+            marginLeft: '40px',
+            marginRight: '40px',
+            marginBottom: '10px',
+            border: '1px solid #e9e6e6e2',
+          }}
           className="form-childName"
           type="text"
           name="childName"
@@ -27,8 +41,16 @@ function Form(props) {
           onChange={handleChange}
           required
         />
-        <p className="form-p">PARENT'S NAME</p>
+        <p className="form-p">Parent's Name</p>
         <input
+          style={{
+            height: '40px',
+            width: '300px',
+            marginLeft: '40px',
+            marginRight: '40px',
+            marginBottom: '10px',
+            border: '1px solid #e9e6e6e2',
+          }}
           className="form-parentName"
           name="parentName"
           type="text"
@@ -36,8 +58,16 @@ function Form(props) {
           onChange={handleChange}
           required
         />
-        <p className="form-p">PARENT'S NUMBER</p>
+        <p className="form-p">Parent's Number</p>
         <input
+          style={{
+            height: '40px',
+            width: '300px',
+            marginLeft: '40px',
+            marginRight: '40px',
+            marginBottom: '10px',
+            border: '1px solid #e9e6e6e2',
+          }}
           className="form-number"
           name="number"
           type="text"
@@ -45,7 +75,7 @@ function Form(props) {
           onChange={handleChange}
           required
         />
-        <p className="form-p">EAT DAIRY?</p>
+        <p className="form-p">Eat Dairy?</p>
 
         <div className="form-check">
           <label>
@@ -72,7 +102,18 @@ function Form(props) {
             No
           </label>
         </div>
-        <p className="form-p">EAT NUTS?</p>
+        <p
+          style={{
+            height: '40px',
+            width: '300px',
+            marginLeft: '40px,',
+            marginRight: '40px',
+            marginBottom: '10px',
+            border: '1px solid #e9e6e6e2',
+          }}
+        >
+          Eat Nuts?
+        </p>
 
         <div className="form-check">
           <label>
@@ -87,7 +128,7 @@ function Form(props) {
           </label>
         </div>
 
-        <div className="form-check">
+        <div>
           <label>
             <input
               type="radio"
@@ -100,8 +141,20 @@ function Form(props) {
           </label>
         </div>
 
-        <button className="button" type="submit">
-          CREATE
+        <button
+          style={{
+            height: '50px',
+            width: '310px',
+            marginLeft: '40px',
+            marginRight: '40px',
+            backgroundColor: '#ffa45c',
+            borderRadius: '4px',
+            border: '1px black',
+            marginTop: '20px',
+          }}
+          type="submit"
+        >
+          ADD CHILD
         </button>
       </form>
     </div>

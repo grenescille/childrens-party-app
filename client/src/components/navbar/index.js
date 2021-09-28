@@ -23,7 +23,7 @@ const Navbar = () => {
             Add Child
           </NavLink>
           <NavLink to="/attendees" activeStyle>
-            Attendees
+            Attendee Details
           </NavLink>
           <NavLink to="/allergies" activeStyle>
             Allergies Info
