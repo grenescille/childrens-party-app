@@ -109,14 +109,14 @@ function Form(props) {
   function handleSubmit(e) {
     e.preventDefault();
     props.onSubmit({ ...state, nuts, dairy });
-    let frm = document.getElementsByName('registration')[0];
-    frm.reset();
 
     setState({
       childName: '',
       parentName: '',
       number: '',
     });
+    setNuts(false);
+    setDairy(false);
   }
 
   function handleChange(e) {
