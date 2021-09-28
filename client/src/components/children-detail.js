@@ -8,7 +8,8 @@ function ChildrenDetail(props) {
         margin: '10px',
         padding: '10px',
         maxWidth: '25%',
-        minWidth: '25%',
+        minWidth: '35%',
+        backgroundColor: '#e6e6e6',
       }}
     >
       <h4 id="child-name">Child's name: {props.childName} </h4>

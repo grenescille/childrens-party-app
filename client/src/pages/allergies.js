@@ -12,7 +12,9 @@ function Allergies(props) {
   return (
     <>
       <div>
-        <h5>All children with allergies</h5>
+        <h2 style={{ margin: '25px', padding: '10px' }}>
+          All children with allergies
+        </h2>
         {props.allergies.map((child) => {
           return (
             <Children key={child._id} childName={child.childName}></Children>
@@ -20,7 +22,9 @@ function Allergies(props) {
         })}
       </div>
       <div>
-        <h5>All children with nut allergies</h5>
+        <h2 style={{ margin: '25px', padding: '10px' }}>
+          All children with nut allergies
+        </h2>
         {props.nutAllergies.map((child) => {
           return (
             <Children key={child._id} childName={child.childName}></Children>
@@ -28,7 +32,9 @@ function Allergies(props) {
         })}
       </div>
       <div>
-        <h5>All children with dairy allergies</h5>
+        <h2 style={{ margin: '25px', padding: '10px' }}>
+          All children with dairy allergies
+        </h2>
         {props.dairyAllergies.map((child) => {
           return (
             <Children key={child._id} childName={child.childName}></Children>
