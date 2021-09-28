@@ -1,4 +1,5 @@
-const Party = require('../models/model');
+const Party = require('../models/partymodel');
+const Budget = require('../models/budgetmodel');
 
 exports.getAllChildren = async (req, res) => {
   try {
@@ -19,6 +20,28 @@ exports.addChild = async (req, res) => {
   } catch (e) {
     console.log(e);
     res.status(400).send();
+  }
+};
+
+exports.addBudget = async (req, res) => {
+  try {
+    req.body = await Budget.create(req.body);
+    res.send(req.body);
+    res.status(200);
+  } catch (e) {
+    console.log(e);
+    res.status(400).send();
+  }
+};
+
+exports.fetchBudget = async (req, res) => {
+  try {
+    const budget = await Budget.find();
+    res.send(budget);
+    res.status(200);
+  } catch (e) {
+    console.log(e);
+    res.status(500).send();
   }
 };
 
@@ -81,6 +104,20 @@ exports.getNoDairy = async (req, res) => {
     const allChildren = await Party.find();
     const noDairy = allChildren.flatMap((child) => (!child.dairy ? child : []));
     res.send(noDairy);
+    res.status(200);
+  } catch (e) {
+    console.log(e);
+    res.status(500).send();
+  }
+};
+
+exports.noNutsOrDairy = async (req, res) => {
+  try {
+    const allChildren = await Party.find();
+    const allAllergies = allChildren.flatMap((child) =>
+      !child.dairy || !child.nuts ? child : []
+    );
+    res.send(allAllergies);
     res.status(200);
   } catch (e) {
     console.log(e);

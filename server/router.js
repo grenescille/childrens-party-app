@@ -14,7 +14,13 @@ router.get('/nonuts', controller.getNoNuts);
 
 router.get('/nodairy', controller.getNoDairy);
 
+router.get('/nonutsordairy', controller.noNutsOrDairy);
+
 router.post('/party', controller.addChild);
+
+router.post('/budget', controller.addBudget);
+
+router.get('/budget', controller.fetchBudget);
 
 router.delete('/party', controller.deleteChildren);
 

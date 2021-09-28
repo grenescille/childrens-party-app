@@ -11,7 +11,6 @@ const partySchema = new Schema({
   confirmed: Boolean,
   declined: Boolean,
 });
-
 const Party = mongoose.model('party', partySchema);
 
 module.exports = Party;
