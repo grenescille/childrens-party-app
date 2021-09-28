@@ -5,27 +5,9 @@ import { useState, useEffect } from 'react';
 import baseURL from '../utils/basurl';
 
 function AddChildForm(props) {
-  const [party, setParty] = useState([]);
-
   useEffect(() => {
-    invitedChildren();
-  }, [party]);
-
-  function invitedChildren() {
-    fetch(baseURL + '/party').then((response) => {
-      if (!response.ok) {
-        throw Error('Error fetching the invited children');
-      }
-      return response
-        .json()
-        .then((data) => {
-          setParty(data);
-        })
-        .catch((err) => {
-          throw Error(err.message);
-        });
-    });
-  }
+    props.invitedChildren();
+  }, [props.party]);
 
   function addChild(input) {
     fetch(baseURL + '/party', {
@@ -40,7 +22,7 @@ function AddChildForm(props) {
         dairy: input.dairy,
         nuts: input.nuts,
       }),
-    }).then(invitedChildren());
+    }).then(props.invitedChildren());
   }
 
   return (
@@ -49,7 +31,7 @@ function AddChildForm(props) {
         <Form onSubmit={addChild} />
       </div>
       <div>
-        {party.map((child) => {
+        {props.party.map((child) => {
           return (
             <Children key={child._id} childName={child.childName}></Children>
           );

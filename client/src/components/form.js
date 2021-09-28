@@ -5,10 +5,10 @@ function Form(props) {
     childName: '',
     parentName: '',
     number: '',
-    dairy: true,
-    nuts: false,
-    // confirmed: '',
   });
+
+  const [nuts, setNuts] = useState();
+  const [dairy, setDairy] = useState();
 
   return (
     <div className="form-container">
@@ -50,11 +50,10 @@ function Form(props) {
         <div className="form-check">
           <label>
             <input
-              onClick={() => handleChange}
+              onClick={() => setDairy(true)}
               type="radio"
               name="dairy"
               value={true}
-              // checked={true}
               className="form-check-input"
             />
             Yes
@@ -67,9 +66,8 @@ function Form(props) {
               type="radio"
               name="dairy"
               value={false}
-              // checked={true}
               className="form-check-input"
-              onChange={handleChange}
+              onClick={() => setDairy(false)}
             />
             No
           </label>
@@ -82,9 +80,8 @@ function Form(props) {
               type="radio"
               name="nuts"
               value={true}
-              // checked={true}
               className="form-check-input"
-              onChange={handleChange}
+              onClick={() => setNuts(true)}
             />
             Yes
           </label>
@@ -96,9 +93,8 @@ function Form(props) {
               type="radio"
               name="nuts"
               value={false}
-              // checked={true}
               className="form-check-input"
-              onChange={handleChange}
+              onClick={() => setNuts(false)}
             />
             No
           </label>
@@ -112,7 +108,7 @@ function Form(props) {
   );
   function handleSubmit(e) {
     e.preventDefault();
-    props.onSubmit(state);
+    props.onSubmit({ ...state, nuts, dairy });
     let frm = document.getElementsByName('registration')[0];
     frm.reset();
 
