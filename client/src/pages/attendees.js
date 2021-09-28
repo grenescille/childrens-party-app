@@ -1,12 +1,17 @@
 import React from 'react';
-import Children from '../components/children';
+import ChildrenDetail from '../components/children-detail';
 
 function Attendees(props) {
   return (
     <div>
       {props.party.map((child) => {
         return (
-          <Children key={child._id} childName={child.childName}></Children>
+          <ChildrenDetail
+            key={child._id}
+            childName={child.childName}
+            parentName={child.parentName}
+            number={child.number}
+          ></ChildrenDetail>
         );
       })}
     </div>
