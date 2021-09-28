@@ -13,7 +13,6 @@ const Navbar = () => {
   return (
     <>
       <Nav>
-        <NavLogo to="/">Logo</NavLogo>
         <Bars />
 
         <NavMenu>
@@ -32,9 +31,6 @@ const Navbar = () => {
           <NavLink to="/budget" activeStyle>
             Budget Calculator
           </NavLink>
-          <NavBtn>
-            <NavBtnLink to="/sign-up">Sign Up</NavBtnLink>
-          </NavBtn>
         </NavMenu>
       </Nav>
     </>

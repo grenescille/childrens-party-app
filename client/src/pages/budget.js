@@ -97,8 +97,6 @@ function Budget(props) {
       return (acc += item);
     });
 
-    console.log('totalCost ', totalCost);
-
     if (!isNaN(totalCost)) {
       return totalCost;
     } else return 0;

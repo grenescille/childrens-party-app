@@ -26,7 +26,7 @@ function AddChildForm(props) {
   }
 
   return (
-    <>
+    <div className="addChildWrapper">
       <div>
         <Form onSubmit={addChild} />
       </div>
@@ -37,7 +37,7 @@ function AddChildForm(props) {
           );
         })}
       </div>
-    </>
+    </div>
   );
 }
 export default AddChildForm;
