@@ -14,15 +14,33 @@ import { useState, useEffect } from 'react';
 function App() {
   const [party, setParty] = useState([]);
 
+  useEffect(() => {
+    invitedChildren();
+  }, []);
+
+  function invitedChildren() {
+    fetch(baseURL + '/party').then((response) => {
+      if (!response.ok) {
+        throw Error('Error fetching the invited children');
+      }
+      return response
+        .json()
+        .then((data) => {
+          setParty(data);
+        })
+        .catch((err) => {
+          throw Error(err.message);
+        });
+    });
+  }
+
   return (
     <Router>
       <Navbar />
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/addchild" component={AddChildForm} />
-        <Route path="/attendees">
-          <Attendees party={party} />
-        </Route>
+        <Route path="/attendees" render={() => <Attendees party={party} />} />
         <Route path="/allergies" component={Allergies} />
         <Route path="/budget" component={Budget} />
       </Switch>
