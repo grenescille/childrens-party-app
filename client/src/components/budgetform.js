@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useEffect } from 'react';
 
 function BudgetForm(props) {
   const [length, setLength] = useState('');
@@ -53,6 +54,7 @@ function BudgetForm(props) {
               name="invitations"
               value={true}
               className="form-check-input"
+              checked={invitations === true}
             />
             Yes
           </label>
@@ -125,6 +127,7 @@ function BudgetForm(props) {
               value={true}
               className="form-check-input"
               onClick={() => setHireVenue(true)}
+              checked={hireVenue === true}
             />
             Yes
           </label>
@@ -165,8 +168,8 @@ function BudgetForm(props) {
               onClick={() => setHireEntertainer(true)}
               type="radio"
               name="entertainer"
-              value={true}
               className="form-check-input"
+              checked={hireEntertainer === true}
             />
             Yes
           </label>
@@ -176,7 +179,6 @@ function BudgetForm(props) {
             <input
               type="radio"
               name="entertainer"
-              value={false}
               className="form-check-input"
               onClick={() => setHireEntertainer(false)}
             />
@@ -208,6 +210,7 @@ function BudgetForm(props) {
               name="pa"
               value={true}
               className="form-check-input"
+              checked={hirePa === true}
             />
             Yes
           </label>
@@ -249,6 +252,7 @@ function BudgetForm(props) {
               name="partybags"
               value={true}
               className="form-check-input"
+              checked={partyBags === true}
             />
             Yes
           </label>
@@ -290,6 +294,7 @@ function BudgetForm(props) {
               name="banner"
               value={true}
               className="form-check-input"
+              checked={banner === true}
             />
             Yes
           </label>
@@ -360,6 +365,7 @@ function BudgetForm(props) {
               name="cake"
               value={true}
               className="form-check-input"
+              checked={cake === true}
             />
             Yes
           </label>
@@ -411,14 +417,16 @@ function BudgetForm(props) {
     });
 
     setLength('');
-    setInvitations(false);
-    setHireVenue(false);
-    setHireEntertainer(false);
-    setHirePa(false);
-    setPartyBags(false);
-    setBanner(false);
+    setInvitations(true);
+    setHireVenue(true);
+    setHireEntertainer(true);
+    setHirePa(true);
+    setPartyBags(true);
+    setBanner(true);
     setPartyGames('');
-    setCake(false);
+    setCake(true);
+    setPartyGames(0);
+    setLength(0);
   }
 
   function handlePartyGames(e) {

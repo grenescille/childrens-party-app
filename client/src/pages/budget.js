@@ -1,7 +1,6 @@
 import BudgetForm from '../components/budgetform';
 import baseURL from '../utils/basurl';
 import { useState } from 'react';
-import { FlexFlowContext } from 'twilio/lib/rest/flexApi/v1/flexFlow';
 
 function Budget(props) {
   const [lastBudget, setLastBudget] = useState({});
@@ -76,15 +75,8 @@ function Budget(props) {
   }
 
   function budgetCalculator(props, lastBudget) {
+    const totalCostsArr = [];
     const totalChildren = props.party.length;
-    const invitationsCost = 3 * totalChildren;
-    const hireVenueCost = 13 * lastBudget.partyLength;
-    const entertainerCost = 150;
-    const hirePaCost = 20;
-    const partyBagsCost = 1 * totalChildren;
-    const bannerCost = 5;
-    const prizesCost = 1.99 * lastBudget.partyGames;
-    const cakeCost = 50;
     const pizzaCost = 3 * (totalChildren / 4);
     const crispsCost = 2 * (totalChildren / 6);
     const sausageRollsCost = 1.75 * (totalChildren / 5);
@@ -95,15 +87,36 @@ function Budget(props) {
     const wineForAdultsCost = 7 * (totalChildren / 3);
     const biscuitsCost = 1.6 * (totalChildren / 10);
 
-    const totalCostsArr = [
-      invitationsCost,
-      hireVenueCost,
-      entertainerCost,
-      hirePaCost,
-      partyBagsCost,
-      bannerCost,
-      prizesCost,
-      cakeCost,
+    console.log('lastBudget ', lastBudget);
+
+    if (lastBudget.partyLength === 0) return 0;
+
+    if (lastBudget.invitation) {
+      totalCostsArr.push(3 * totalChildren);
+    }
+    if (lastBudget.hireVenue) {
+      totalCostsArr.push(13 * lastBudget.partyLength);
+    }
+    if (lastBudget.hireEntertainer) {
+      totalCostsArr.push(150);
+    }
+    if (lastBudget.hirePa) {
+      totalCostsArr.push(20);
+    }
+    if (lastBudget.partyBags) {
+      totalCostsArr.push(1 * totalChildren);
+    }
+    if (lastBudget.birthdayBanner) {
+      totalCostsArr.push(5);
+    }
+    if (lastBudget.partyGames > 0) {
+      totalCostsArr.push(1.99 * lastBudget.partyGames);
+    }
+    if (lastBudget.cake) {
+      totalCostsArr.push(50);
+    }
+
+    totalCostsArr.push(
       pizzaCost,
       crispsCost,
       sausageRollsCost,
@@ -112,8 +125,10 @@ function Budget(props) {
       teaCost,
       milkCost,
       wineForAdultsCost,
-      biscuitsCost,
-    ];
+      biscuitsCost
+    );
+
+    console.log(totalCostsArr);
 
     const totalCost = totalCostsArr.reduce((acc, item) => {
       return (acc += item);
