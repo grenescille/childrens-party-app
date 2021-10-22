@@ -87,8 +87,6 @@ function Budget(props) {
     const wineForAdultsCost = 7 * (totalChildren / 3);
     const biscuitsCost = 1.6 * (totalChildren / 10);
 
-    console.log('lastBudget ', lastBudget);
-
     if (lastBudget.partyLength === 0) return 0;
 
     if (lastBudget.invitation) {
@@ -127,8 +125,6 @@ function Budget(props) {
       wineForAdultsCost,
       biscuitsCost
     );
-
-    console.log(totalCostsArr);
 
     const totalCost = totalCostsArr.reduce((acc, item) => {
       return (acc += item);

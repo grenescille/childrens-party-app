@@ -12,7 +12,8 @@
 /build
 
 # misc
-workspace.code-workspace
+
+.workspace.code-workspace
 .env
 .DS_Store
 .env.local
