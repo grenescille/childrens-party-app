@@ -8,6 +8,7 @@ import Attendees from './pages/attendees';
 import Allergies from './pages/allergies';
 import Budget from './pages/budget';
 import baseURL from './utils/basurl';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { useState, useEffect } from 'react';
 
